@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.example.payrollmanagementsystem.admin.AdminFragment"
+        android:label="fragment_admin2"
+        tools:layout="@layout/fragment_admin" >
+        <action
+            android:id="@+id/action_adminFragment_to_editDetailFragment"
+            app:destination="@id/editDetailFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_addEmployeeFragment"
+            app:destination="@id/addEmployeeFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_deleteFragment"
+            app:destination="@id/deleteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.payrollmanagementsystem.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editDetailFragment"
+        android:name="com.example.payrollmanagementsystem.admin.EditDetailFragment"
+        android:label="fragment_edit_detail"
+        tools:layout="@layout/fragment_edit_detail" />
+    <fragment
+        android:id="@+id/addEmployeeFragment"
+        android:name="com.example.payrollmanagementsystem.admin.AddEmployeeFragment"
+        android:label="fragment_add_employee"
+        tools:layout="@layout/fragment_add_employee" />
+    <fragment
+        android:id="@+id/deleteFragment"
+        android:name="com.example.payrollmanagementsystem.admin.DeleteFragment"
+        android:label="fragment_delete"
+        tools:layout="@layout/fragment_delete" />
+</navigation>

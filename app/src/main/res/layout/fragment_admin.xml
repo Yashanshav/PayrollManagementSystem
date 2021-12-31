@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/containerAdmin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".admin.AdminFragment">
+
+
+    <EditText
+        android:id="@+id/welcomeAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome Admin"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:enabled="false"
+        tools:layout_editor_absoluteX="81dp"
+        tools:layout_editor_absoluteY="43dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Welcome Admin" />
+
+    <Button
+        android:id="@+id/editDetails"
+        android:layout_width="161dp"
+        android:layout_height="53dp"
+        android:text="Edit Details"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="183dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeAdmin"/>
+
+    <Button
+        android:id="@+id/AddEmp"
+        android:layout_width="163dp"
+        android:layout_height="50dp"
+        android:text="Add Employee"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="276dp" app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editDetails" />
+
+    <Button
+        android:id="@+id/deleteEmp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Employee"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="373dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddEmp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

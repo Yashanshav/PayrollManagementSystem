@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.AddEmployeeFragment">
+
+
+    <EditText
+        android:id="@+id/addEmp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="Add Employee"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Add Employee" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="314dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="2dp"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="111dp"
+        app:layout_constraintTop_toBottomOf="@id/addEmp"/>
+
+    <EditText
+        android:id="@+id/phoneNo"
+        android:layout_width="308dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="textPersonName"
+        android:text="Phone Number"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="169dp"
+        app:layout_constraintTop_toBottomOf="@id/name"/>
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="304dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="textPersonName"
+        android:text="Address"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="227dp"
+        app:layout_constraintTop_toBottomOf="@id/phoneNo"/>
+
+    <EditText
+        android:id="@+id/achievements"
+        android:layout_width="312dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:inputType="textPersonName"
+        android:text="achievements"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="273dp"
+        app:layout_constraintTop_toBottomOf="@id/address"/>
+
+    <EditText
+        android:id="@+id/baiscPay"
+        android:layout_width="315dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:inputType="textPersonName"
+        android:text="basic pay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="327dp"
+        app:layout_constraintTop_toBottomOf="@id/achievements"/>
+
+    <EditText
+        android:id="@+id/pf"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="textPersonName"
+        android:text="PF"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="389dp"
+        app:layout_constraintTop_toBottomOf="@id/baiscPay"/>
+
+    <EditText
+        android:id="@+id/otherAllowances"
+        android:layout_width="330dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="textPersonName"
+        android:text="other allowances"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="461dp"
+        app:layout_constraintTop_toBottomOf="@id/pf"/>
+
+    <EditText
+        android:id="@+id/addPassword"
+        android:layout_width="321dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="textPersonName"
+        android:text="Password"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="518dp"
+        app:layout_constraintTop_toBottomOf="@id/otherAllowances"/>
+
+    <Button
+        android:id="@+id/addEmployee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addPassword"
+        app:layout_constraintVertical_bias="0.2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
