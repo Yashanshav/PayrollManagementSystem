@@ -20,6 +20,19 @@ class EmployeeRepository(private val employeeDAO: EmployeeDAO) {
        return employeeDAO.search(Id)
     }
 
+    @Query("Select * from loginDetails where lid = :Id")
+    fun searchLogin(Id: Int) : loginDetails {
+        return employeeDAO.searchLogin(Id)
+    }
+    @Query("Select * from salary where empId = :Id")
+    fun searchSal(Id: Int) : salary {
+        return employeeDAO.searchSal(Id)
+    }
+    @Query("Select * from leaves where empLId = :Id")
+    fun searchLeave(Id: Int) : leaves {
+        return employeeDAO.searchLeave(Id)
+    }
+
     @Delete
     fun delete(Id: Int) {
         val employee: Employee = search(Id)
