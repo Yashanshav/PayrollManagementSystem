@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_loginFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_employeeFragment"
+            app:destination="@id/employeeFragment" />
     </fragment>
     <fragment
         android:id="@+id/editDetailFragment"
@@ -64,4 +67,18 @@
             android:id="@+id/action_editDetailInfo_to_adminFragment"
             app:destination="@id/adminFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/employeeFragment"
+        android:name="com.example.payrollmanagementsystem.user.EmployeeFragment"
+        android:label="fragment_employee"
+        tools:layout="@layout/fragment_employee" >
+        <action
+            android:id="@+id/action_employeeFragment_to_salarySlipFragment"
+            app:destination="@id/salarySlipFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/salarySlipFragment"
+        android:name="com.example.payrollmanagementsystem.user.SalarySlipFragment"
+        android:label="fragment_salary_slip"
+        tools:layout="@layout/fragment_salary_slip" />
 </navigation>

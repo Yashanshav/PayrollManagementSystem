@@ -26,6 +26,7 @@ interface EmployeeDAO {
     @Query("Select  *  from leaves where empLId = :Id")
     fun searchLeave(Id: Int) : leaves
 
+
     @Delete
     fun delete(employee: Employee)
 

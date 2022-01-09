@@ -1,5 +1,5 @@
 # PayrollManagementSystem
-It is a basic salary rolling manangement system which gives salaries to the employees and has employee has see their salary and leaves taken.
+It is a basic salary rolling management system which gives salaries to the employees and has employee has see their salary and leaves taken.
 It also has a admin side which takes cares of the system.
 
 #### Features

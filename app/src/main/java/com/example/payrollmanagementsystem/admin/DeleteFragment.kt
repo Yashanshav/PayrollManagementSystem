@@ -36,7 +36,7 @@ class DeleteFragment : Fragment() {
             }
             else {
                 repository.delete(id.text.toString().toInt())
-                Toast.makeText(context, "Employee deleted successfully with id ${id.text.toString()} ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Employee deleted successfully with id ${id.text} ", Toast.LENGTH_SHORT).show()
                 view.findNavController().navigate(R.id.action_deleteFragment_to_adminFragment)
             }
         }
