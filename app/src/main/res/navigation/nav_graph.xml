@@ -32,7 +32,11 @@
         android:id="@+id/editDetailFragment"
         android:name="com.example.payrollmanagementsystem.admin.EditDetailFragment"
         android:label="fragment_edit_detail"
-        tools:layout="@layout/fragment_edit_detail" />
+        tools:layout="@layout/fragment_edit_detail" >
+        <action
+            android:id="@+id/action_editDetailFragment_to_editDetailInfo"
+            app:destination="@id/editDetailInfo" />
+    </fragment>
     <fragment
         android:id="@+id/addEmployeeFragment"
         android:name="com.example.payrollmanagementsystem.admin.AddEmployeeFragment"
@@ -43,4 +47,9 @@
         android:name="com.example.payrollmanagementsystem.admin.DeleteFragment"
         android:label="fragment_delete"
         tools:layout="@layout/fragment_delete" />
+    <fragment
+        android:id="@+id/editDetailInfo"
+        android:name="com.example.payrollmanagementsystem.EditDetailInfo"
+        android:label="fragment_edit_detail_info"
+        tools:layout="@layout/fragment_edit_detail_info" />
 </navigation>

@@ -34,6 +34,9 @@ class EditDetailFragment : Fragment() {
             if(repository.search(id.text.toString().toInt()) == null) {
                 Toast.makeText(context, "record not found", Toast.LENGTH_SHORT).show()
             }
+            else {
+                
+            }
         }
 
         return view

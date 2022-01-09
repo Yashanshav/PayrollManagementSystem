@@ -30,8 +30,13 @@ class DeleteFragment : Fragment() {
             val dao = LoginDatabase.getInstance(application).employeeDAO()
             val repository = EmployeeRepository(dao)
 
-            repository.delete(id.text.toString().toInt())
-              val toast = Toast.makeText(context, "Employee deleted successfully with id ${id.text.toString()} ", Toast.LENGTH_SHORT).show()
+            if(repository.search(id.text.toString().toInt()) == null) {
+                Toast.makeText(context,"Record not found",Toast.LENGTH_SHORT).show()
+            }
+            else {
+                repository.delete(id.text.toString().toInt())
+                Toast.makeText(context, "Employee deleted successfully with id ${id.text.toString()} ", Toast.LENGTH_SHORT).show()
+            }
         }
 
         return view
