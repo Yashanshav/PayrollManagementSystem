@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
         childColumns = arrayOf("lid"),
         onDelete = ForeignKey.CASCADE)))
 data class loginDetails (
-        @PrimaryKey(autoGenerate = true) val loginId: Int,
-        val lid: Int,
-        val password: String
+    @PrimaryKey(autoGenerate = true) val loginId: Int,
+    val lid: Int,
+    var password: String
 )

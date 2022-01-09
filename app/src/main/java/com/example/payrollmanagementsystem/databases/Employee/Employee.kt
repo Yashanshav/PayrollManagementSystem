@@ -7,24 +7,14 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "Employee")
 data class Employee (
 
-        @PrimaryKey(autoGenerate = false) val id: Int,
-        val name: String?,
-        val address: String?,
-        val phoneNo: Int?,
-        val achievements: String
+    @PrimaryKey(autoGenerate = false) val id: Int,
+    var name: String,
+    var address: String,
+    var phoneNo: Int,
+    var achievements: String
 
 )
 
-data class empAll (
-        val name: String?,
-        val address: String?,
-        val phoneNo: Int?,
-        val achievements: String,
-        val basicPay: Double,
-        val pf: Int,
-        val otherAllowances: Int,
-        val password: String
-        )
 
 
 

@@ -1,7 +1,10 @@
 package com.example.payrollmanagementsystem.databases
 
 import androidx.room.*
-import com.example.payrollmanagementsystem.databases.Employee.*
+import com.example.payrollmanagementsystem.databases.Employee.Employee
+import com.example.payrollmanagementsystem.databases.Employee.leaves
+import com.example.payrollmanagementsystem.databases.Employee.loginDetails
+import com.example.payrollmanagementsystem.databases.Employee.salary
 
 @Dao
 interface EmployeeDAO {
@@ -9,9 +12,6 @@ interface EmployeeDAO {
     //Add employee
     @Insert
     fun insertAll(employee: Employee, loginDetails: loginDetails, leaves: leaves, salary: salary)
-
-   @Query("Select name, phoneNo, address, achievements, basicPay, pf, otherAllowances, password from Employee,loginDetails,leaves,salary where id = :Id")
-   fun searchAll(Id: Int) : empAll
 
 
     @Query("Select  *  from Employee where id = :Id")

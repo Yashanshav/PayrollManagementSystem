@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.payrollmanagementsystem.R
 import com.example.payrollmanagementsystem.databases.EmployeeRepository
 import com.example.payrollmanagementsystem.databases.LoginDatabase
@@ -35,11 +37,13 @@ class EditDetailFragment : Fragment() {
                 Toast.makeText(context, "record not found", Toast.LENGTH_SHORT).show()
             }
             else {
-                
+                val bundle = bundleOf("id" to id.text.toString().trim().toInt())
+                view.findNavController().navigate(R.id.action_editDetailFragment_to_editDetailInfo, bundle)
             }
         }
 
         return view
     }
+
 
 }

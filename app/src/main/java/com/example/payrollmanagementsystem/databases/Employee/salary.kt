@@ -9,12 +9,12 @@ import androidx.room.PrimaryKey
         childColumns = arrayOf("empId"),
         onDelete = ForeignKey.CASCADE)))
 data class salary (
-        @PrimaryKey(autoGenerate = true) val salId: Int,
-        val empId: Int,
-        val basicPay: Double,
-        val ta: Double,
-        val da: Double,
-        val hra: Double,
-        val otherAllowances: Int,
-        val pf: Int
+    @PrimaryKey(autoGenerate = true) val salId: Int,
+    val empId: Int,
+    var basicPay: Double,
+    val ta: Double,
+    val da: Double,
+    val hra: Double,
+    var otherAllowances: Int,
+    var pf: Int
 )

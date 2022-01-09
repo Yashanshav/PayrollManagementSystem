@@ -3,6 +3,7 @@ package com.example.payrollmanagementsystem.databases
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.payrollmanagementsystem.databases.Employee.Employee
 import com.example.payrollmanagementsystem.databases.Employee.leaves
 import com.example.payrollmanagementsystem.databases.Employee.loginDetails
@@ -37,6 +38,11 @@ class EmployeeRepository(private val employeeDAO: EmployeeDAO) {
     fun delete(Id: Int) {
         val employee: Employee = search(Id)
         employeeDAO.delete(employee)
+    }
+
+    @Update
+    fun updateAll(employee: Employee, loginDetails: loginDetails, salary: salary, leaves: leaves) {
+        employeeDAO.updateAll(employee, loginDetails, leaves, salary)
     }
 
 

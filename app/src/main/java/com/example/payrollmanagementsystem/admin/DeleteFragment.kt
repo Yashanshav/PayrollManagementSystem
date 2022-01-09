@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.payrollmanagementsystem.R
 import com.example.payrollmanagementsystem.databases.EmployeeRepository
 import com.example.payrollmanagementsystem.databases.LoginDatabase
@@ -36,6 +37,7 @@ class DeleteFragment : Fragment() {
             else {
                 repository.delete(id.text.toString().toInt())
                 Toast.makeText(context, "Employee deleted successfully with id ${id.text.toString()} ", Toast.LENGTH_SHORT).show()
+                view.findNavController().navigate(R.id.action_deleteFragment_to_adminFragment)
             }
         }
 

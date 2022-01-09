@@ -41,15 +41,27 @@
         android:id="@+id/addEmployeeFragment"
         android:name="com.example.payrollmanagementsystem.admin.AddEmployeeFragment"
         android:label="fragment_add_employee"
-        tools:layout="@layout/fragment_add_employee" />
+        tools:layout="@layout/fragment_add_employee" >
+        <action
+            android:id="@+id/action_addEmployeeFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+    </fragment>
     <fragment
         android:id="@+id/deleteFragment"
         android:name="com.example.payrollmanagementsystem.admin.DeleteFragment"
         android:label="fragment_delete"
-        tools:layout="@layout/fragment_delete" />
+        tools:layout="@layout/fragment_delete" >
+        <action
+            android:id="@+id/action_deleteFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editDetailInfo"
-        android:name="com.example.payrollmanagementsystem.EditDetailInfo"
+        android:name="com.example.payrollmanagementsystem.admin.EditDetailInfo"
         android:label="fragment_edit_detail_info"
-        tools:layout="@layout/fragment_edit_detail_info" />
+        tools:layout="@layout/fragment_edit_detail_info" >
+        <action
+            android:id="@+id/action_editDetailInfo_to_adminFragment"
+            app:destination="@id/adminFragment" />
+    </fragment>
 </navigation>

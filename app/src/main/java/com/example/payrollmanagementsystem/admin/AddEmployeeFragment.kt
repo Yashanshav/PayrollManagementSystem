@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.payrollmanagementsystem.R
 import com.example.payrollmanagementsystem.databases.Employee.Employee
 import com.example.payrollmanagementsystem.databases.Employee.leaves
@@ -54,7 +55,7 @@ class AddEmployeeFragment : Fragment() {
                 id,
                 name.text.toString(),
                 address.text.toString(),
-                phoneNo.text.toString().trim().toIntOrNull(),
+                phoneNo.text.toString().trim().toInt(),
                 achievements.text.toString()
             )
             val login = loginDetails(0, id, addPassword.text.toString())
@@ -73,6 +74,7 @@ class AddEmployeeFragment : Fragment() {
 
             Toast.makeText(context, "Your id number is $id", Toast.LENGTH_SHORT).show()
             saveId(++id)
+            view.findNavController().navigate(R.id.action_addEmployeeFragment_to_adminFragment)
         }
 
 
