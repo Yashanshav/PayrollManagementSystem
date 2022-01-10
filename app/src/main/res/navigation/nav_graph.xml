@@ -75,10 +75,22 @@
         <action
             android:id="@+id/action_employeeFragment_to_salarySlipFragment"
             app:destination="@id/salarySlipFragment" />
+        <action
+            android:id="@+id/action_employeeFragment_to_leaveFragment"
+            app:destination="@id/leaveFragment" />
     </fragment>
     <fragment
         android:id="@+id/salarySlipFragment"
         android:name="com.example.payrollmanagementsystem.user.SalarySlipFragment"
         android:label="fragment_salary_slip"
         tools:layout="@layout/fragment_salary_slip" />
+    <fragment
+        android:id="@+id/leaveFragment"
+        android:name="com.example.payrollmanagementsystem.user.LeaveFragment"
+        android:label="fragment_leave"
+        tools:layout="@layout/fragment_leave" >
+        <action
+            android:id="@+id/action_leaveFragment_to_employeeFragment"
+            app:destination="@id/employeeFragment" />
+    </fragment>
 </navigation>

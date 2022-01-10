@@ -45,5 +45,10 @@ class EmployeeRepository(private val employeeDAO: EmployeeDAO) {
         employeeDAO.updateAll(employee, loginDetails, leaves, salary)
     }
 
+    @Update
+    fun updateLeave(leaves: leaves) {
+        employeeDAO.updateLeave(leaves)
+    }
+
 
 }

@@ -32,4 +32,7 @@ interface EmployeeDAO {
 
     @Update
     fun updateAll(employee: Employee,loginDetails: loginDetails,leaves: leaves,salary: salary)
+
+    @Update
+    fun updateLeave(leaves: leaves)
 }

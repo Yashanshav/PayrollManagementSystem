@@ -10,7 +10,7 @@ import com.example.payrollmanagementsystem.databases.Employee.loginDetails
 import com.example.payrollmanagementsystem.databases.Employee.salary
 
 
-@Database(entities = [Employee::class, loginDetails::class, salary::class, leaves::class], version = 2, exportSchema = false)
+@Database(entities = [Employee::class, loginDetails::class, salary::class, leaves::class], version = 3, exportSchema = false)
 abstract class LoginDatabase : RoomDatabase() {
     abstract fun employeeDAO() : EmployeeDAO
 

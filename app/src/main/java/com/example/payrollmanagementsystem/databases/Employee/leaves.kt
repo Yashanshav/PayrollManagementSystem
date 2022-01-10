@@ -10,8 +10,8 @@ import androidx.room.PrimaryKey
         childColumns = arrayOf("empLId"),
         onDelete = ForeignKey.CASCADE)))
 data class leaves (
-        @PrimaryKey(autoGenerate = true) val leaveId: Int,
-        val empLId: Int,
-        val leavesTaken: Int,
-        @ColumnInfo(defaultValue = "15") val availableLeaves: Int
+    @PrimaryKey(autoGenerate = true) val leaveId: Int,
+    val empLId: Int,
+    var leavesTaken: Int,
+    @ColumnInfo(defaultValue = "15") val availableLeaves: Int
 )
