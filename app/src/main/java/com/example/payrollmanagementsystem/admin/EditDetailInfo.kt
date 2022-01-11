@@ -12,6 +12,9 @@ import androidx.navigation.findNavController
 import com.example.payrollmanagementsystem.R
 import com.example.payrollmanagementsystem.databases.EmployeeRepository
 import com.example.payrollmanagementsystem.databases.LoginDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class EditDetailInfo : Fragment() {
 
@@ -37,36 +40,40 @@ class EditDetailInfo : Fragment() {
         val editBatten: Button = view.findViewById(R.id.EditaddEmployee)
 
         val application = requireNotNull(this.activity).application
-        val dao = LoginDatabase.getInstance(application).employeeDAO()
-        val repository = EmployeeRepository(dao)
+        GlobalScope.launch(Dispatchers.IO) {
+            val dao = LoginDatabase.getInstance(application).employeeDAO()
+            val repository = EmployeeRepository(dao)
 
-        var employee = repository.search(id!!)
-        var salary = repository.searchSal(id)
-        var loginDetails = repository.searchLogin(id)
-        var leaves = repository.searchLeave(id)
+            var employee = repository.search(id!!)
+            var salary = repository.searchSal(id)
+            var loginDetails = repository.searchLogin(id)
+            var leaves = repository.searchLeave(id)
 
-        name.setText(employee.name)
-        phoneNo.setText(employee.phoneNo.toString())
-        address.setText(employee.address)
-        achievements.setText(employee.achievements)
-        basicPay.setText(salary.basicPay.toString())
-        pf.setText(salary.pf.toString())
-        otherAllowances.setText(salary.otherAllowances.toString())
-        addPassword.setText(loginDetails.password)
 
-        editBatten.setOnClickListener {
-            employee.name = name.text.toString()
-            employee.phoneNo = phoneNo.text.toString().trim().toInt()
-            employee.address = address.text.toString()
-            employee.achievements = achievements.text.toString()
-            salary.basicPay = basicPay.text.toString().trim().toDouble()
-            salary.pf = pf.text.toString().trim().toInt()
-            salary.otherAllowances = otherAllowances.text.toString().trim().toInt()
-            loginDetails.password = addPassword.text.toString()
+            name.setText(employee.name)
+            phoneNo.setText(employee.phoneNo.toString())
+            address.setText(employee.address)
+            achievements.setText(employee.achievements)
+            basicPay.setText(salary.basicPay.toString())
+            pf.setText(salary.pf.toString())
+            otherAllowances.setText(salary.otherAllowances.toString())
+            addPassword.setText(loginDetails.password)
 
-            repository.updateAll(employee,loginDetails,salary,leaves)
-            Toast.makeText(context, "record updated successfully for $id", Toast.LENGTH_SHORT).show()
-            view.findNavController().navigate(R.id.action_editDetailInfo_to_adminFragment)
+            editBatten.setOnClickListener {
+                employee.name = name.text.toString()
+                employee.phoneNo = phoneNo.text.toString().trim().toInt()
+                employee.address = address.text.toString()
+                employee.achievements = achievements.text.toString()
+                salary.basicPay = basicPay.text.toString().trim().toDouble()
+                salary.pf = pf.text.toString().trim().toInt()
+                salary.otherAllowances = otherAllowances.text.toString().trim().toInt()
+                loginDetails.password = addPassword.text.toString()
+
+                repository.updateAll(employee, loginDetails, salary, leaves)
+                Toast.makeText(context, "record updated successfully for $id", Toast.LENGTH_SHORT)
+                    .show()
+                view.findNavController().navigate(R.id.action_editDetailInfo_to_adminFragment)
+            }
         }
 
 

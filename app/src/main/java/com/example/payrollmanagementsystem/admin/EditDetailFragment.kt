@@ -13,6 +13,9 @@ import androidx.navigation.findNavController
 import com.example.payrollmanagementsystem.R
 import com.example.payrollmanagementsystem.databases.EmployeeRepository
 import com.example.payrollmanagementsystem.databases.LoginDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class EditDetailFragment : Fragment() {
@@ -29,16 +32,20 @@ class EditDetailFragment : Fragment() {
 
         search.setOnClickListener {
             val application = requireNotNull(this.activity).application
-            val dao = LoginDatabase.getInstance(application).employeeDAO()
-            val repository = EmployeeRepository(dao)
+
+            GlobalScope.launch(Dispatchers.IO) {
+                val dao = LoginDatabase.getInstance(application).employeeDAO()
+                val repository = EmployeeRepository(dao)
+
 
                 // used this but haven't tested it yet if it works or not
-            if(repository.search(id.text.toString().toInt()) == null) {
-                Toast.makeText(context, "record not found", Toast.LENGTH_SHORT).show()
-            }
-            else {
-                val bundle = bundleOf("id" to id.text.toString().trim().toInt())
-                view.findNavController().navigate(R.id.action_editDetailFragment_to_editDetailInfo, bundle)
+                if (repository.search(id.text.toString().toInt()) == null) {
+                    Toast.makeText(context, "record not found", Toast.LENGTH_SHORT).show()
+                } else {
+                    val bundle = bundleOf("id" to id.text.toString().trim().toInt())
+                    view.findNavController()
+                        .navigate(R.id.action_editDetailFragment_to_editDetailInfo, bundle)
+                }
             }
         }
 

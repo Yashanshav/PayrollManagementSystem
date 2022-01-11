@@ -17,6 +17,9 @@ import com.example.payrollmanagementsystem.databases.Employee.loginDetails
 import com.example.payrollmanagementsystem.databases.Employee.salary
 import com.example.payrollmanagementsystem.databases.EmployeeRepository
 import com.example.payrollmanagementsystem.databases.LoginDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class AddEmployeeFragment : Fragment() {
@@ -47,33 +50,37 @@ class AddEmployeeFragment : Fragment() {
         add.setOnClickListener {
 
             val application = requireNotNull(this.activity).application
-            val dao = LoginDatabase.getInstance(application).employeeDAO()
-            val repository = EmployeeRepository(dao)
+            GlobalScope.launch {
+                Dispatchers.IO
+                val dao = LoginDatabase.getInstance(application).employeeDAO()
+                val repository = EmployeeRepository(dao)
 
-            val leaves = leaves(0, id!!, 0, 15)
-            val employee = Employee(
-                id,
-                name.text.toString(),
-                address.text.toString(),
-                phoneNo.text.toString().trim().toInt(),
-                achievements.text.toString()
-            )
-            val login = loginDetails(0, id, addPassword.text.toString())
-            val salary = salary(
-                0,
-                id,
-                basicPay.text.toString().trim().toDouble(),
-                basicPay.text.toString().trim().toDouble() * 0.05,
-                basicPay.text.toString().trim().toDouble() * 0.1,
-                basicPay.text.toString().trim().toDouble() * 0.2,
-                otherAllowances.text.toString().trim().toInt(),
-                pf.text.toString().trim().toInt()
-            )
+                val leaves = leaves(0, id!!, 0, 15)
+                val employee = Employee(
+                    id,
+                    name.text.toString(),
+                    address.text.toString(),
+                    phoneNo.text.toString().trim().toInt(),
+                    achievements.text.toString()
+                )
+                val login = loginDetails(0, id, addPassword.text.toString())
+                val salary = salary(
+                    0,
+                    id,
+                    basicPay.text.toString().trim().toDouble(),
+                    basicPay.text.toString().trim().toDouble() * 0.05,
+                    basicPay.text.toString().trim().toDouble() * 0.1,
+                    basicPay.text.toString().trim().toDouble() * 0.2,
+                    otherAllowances.text.toString().trim().toInt(),
+                    pf.text.toString().trim().toInt()
+                )
 
-            repository.insertAll(employee, login, leaves, salary)
+                repository.insertAll(employee, login, leaves, salary)
 
-            Toast.makeText(context, "Your id number is $id", Toast.LENGTH_SHORT).show()
-            saveId(++id)
+
+                Toast.makeText(context, "Your id number is $id", Toast.LENGTH_SHORT).show()
+                saveId(++id)
+            }
             view.findNavController().navigate(R.id.action_addEmployeeFragment_to_adminFragment)
         }
 

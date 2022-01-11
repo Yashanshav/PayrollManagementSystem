@@ -64,20 +64,27 @@ class LoginFragment : Fragment() {
     private fun checkUsernameAndPasswordForEmployee(username: EditText, password: EditText): Boolean {
 
         val application = requireNotNull(this.activity).application
-        val dao = LoginDatabase.getInstance(application).employeeDAO()
-        val repository = EmployeeRepository(dao)
-        val loginDetails = repository.searchLogin(username.text.toString().trim().toInt())
-        val employee = repository.search(username.text.toString().trim().toInt())
 
-        if(loginDetails != null && password.text.toString() == loginDetails.password) {
-            // user activity
-            Toast.makeText(context, "Welcome ${employee.name}", Toast.LENGTH_SHORT).show()
-            return true
-        }
-        else {
-            Toast.makeText(context, "username or password don't match for employee", Toast.LENGTH_SHORT).show()
-            return false
-        }
+            val dao = LoginDatabase.getInstance(application).employeeDAO()
+            val repository = EmployeeRepository(dao)
+
+            val loginDetails = repository.searchLogin(username.text.toString().trim().toInt())
+            val employee = repository.search(username.text.toString().trim().toInt())
+
+
+            if (loginDetails != null && password.text.toString() == loginDetails.password) {
+                // user activity
+                Toast.makeText(context, "Welcome ${employee.name}", Toast.LENGTH_SHORT).show()
+                return true
+            } else {
+                Toast.makeText(
+                    context,
+                    "username or password don't match for employee",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return false
+            }
+
 
     }
 

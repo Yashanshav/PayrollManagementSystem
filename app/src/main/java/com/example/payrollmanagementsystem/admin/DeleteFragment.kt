@@ -12,6 +12,9 @@ import androidx.navigation.findNavController
 import com.example.payrollmanagementsystem.R
 import com.example.payrollmanagementsystem.databases.EmployeeRepository
 import com.example.payrollmanagementsystem.databases.LoginDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class DeleteFragment : Fragment() {
 
@@ -28,16 +31,23 @@ class DeleteFragment : Fragment() {
 
         del.setOnClickListener {
             val application = requireNotNull(this.activity).application
-            val dao = LoginDatabase.getInstance(application).employeeDAO()
-            val repository = EmployeeRepository(dao)
 
-            if(repository.search(id.text.toString().toInt()) == null) {
-                Toast.makeText(context,"Record not found",Toast.LENGTH_SHORT).show()
-            }
-            else {
-                repository.delete(id.text.toString().toInt())
-                Toast.makeText(context, "Employee deleted successfully with id ${id.text} ", Toast.LENGTH_SHORT).show()
-                view.findNavController().navigate(R.id.action_deleteFragment_to_adminFragment)
+            GlobalScope.launch(Dispatchers.IO) {
+                val dao = LoginDatabase.getInstance(application).employeeDAO()
+                val repository = EmployeeRepository(dao)
+
+                if (repository.search(id.text.toString().toInt()) == null) {
+                    Toast.makeText(context, "Record not found", Toast.LENGTH_SHORT).show()
+                } else {
+                    repository.delete(id.text.toString().toInt())
+                    Toast.makeText(
+                        context,
+                        "Employee deleted successfully with id ${id.text} ",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    view.findNavController().navigate(R.id.action_deleteFragment_to_adminFragment)
+                }
+
             }
         }
 

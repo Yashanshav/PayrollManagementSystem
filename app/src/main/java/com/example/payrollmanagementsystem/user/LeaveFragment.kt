@@ -13,6 +13,9 @@ import com.example.payrollmanagementsystem.R
 import com.example.payrollmanagementsystem.databases.Employee.leaves
 import com.example.payrollmanagementsystem.databases.EmployeeRepository
 import com.example.payrollmanagementsystem.databases.LoginDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class LeaveFragment : Fragment() {
@@ -34,12 +37,14 @@ class LeaveFragment : Fragment() {
         else {
             addLeave.setOnClickListener {
                 val application = requireNotNull(this.activity).application
-                val dao = LoginDatabase.getInstance(application).employeeDAO()
-                val repository = EmployeeRepository(dao)
+                GlobalScope.launch(Dispatchers.IO) {
+                    val dao = LoginDatabase.getInstance(application).employeeDAO()
+                    val repository = EmployeeRepository(dao)
 
-                val lf: leaves = repository.searchLeave(id!!)
-                lf.leavesTaken += leaves.text.toString().trim().toInt()
-                repository.updateLeave(lf)
+                    val lf: leaves = repository.searchLeave(id!!)
+                    lf.leavesTaken += leaves.text.toString().trim().toInt()
+                    repository.updateLeave(lf)
+                }
                 Toast.makeText(context, "Added Leaves", Toast.LENGTH_SHORT).show()
                 this.findNavController().navigate(R.id.action_leaveFragment_to_employeeFragment)
             }
